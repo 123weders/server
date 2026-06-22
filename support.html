@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mck Project - Поддержка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .support-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .support-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.3em;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #43e97b, #38f9d7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .support-text {
+            font-size: 1.1em;
+            margin-bottom: 35px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #0088cc, #0099e6);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .telegram-icon {
+            font-size: 1.6em;
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 136, 204, 0.6);
+            background: linear-gradient(45deg, #0099e6, #00b3ff);
+        }
+
+        .telegram-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .username-display {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #38f9d7;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="support-container">
+        <div class="support-icon">💬</div>
+        <h2>Поддержка</h2>
+        <p class="support-text">
+            Возникли вопросы или проблемы?<br>
+            Наша команда всегда готова помочь!<br>
+            Свяжитесь с нами через Telegram.
+        </p>
+        
+        <a href="https://t.me/MiLixiv" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+            <span class="telegram-icon">✈️</span>
+            Написать в Telegram
+        </a>
+        
+        <div class="username-display">
+            @MiLixiv
+        </div>
+        
+        <a href="menu.html" class="back-btn">← Вернуться в меню</a>
+    </div>
+</body>
+</html>

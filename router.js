@@ -1,14 +1,13 @@
 (function () {
   'use strict';
 
-  // 1) Настоящие редиректы (старые адреса)
+  // Старые адреса -> новые (с перезагрузкой)
   var REDIRECTS = {
     '/donnats.html': '/donate'
   };
 
-  // 2) Красивый путь -> реальный файл (для 404.html на GitHub Pages)
+  // Красивый путь -> файл (только для 404.html; '/' НЕ нужен)
   var ROUTES = {
-    '/':       '/index.html',
     '/info':   '/info.html',
     '/rules':  '/rules.html',
     '/donate': '/donate.html'
@@ -16,13 +15,13 @@
 
   var path = window.location.pathname;
 
-  // --- Шаг A: старые адреса -> новые (с перезагрузкой) ---
+  // A: старые адреса
   if (REDIRECTS[path]) {
     window.location.replace(REDIRECTS[path]);
     return;
   }
 
-  // --- Шаг B: *.html -> красивый URL без перезагрузки ---
+  // B: *.html -> красивый URL без перезагрузки
   if (/\.html$/.test(path) && window.history && history.replaceState) {
     var pretty = path === '/index.html'
       ? '/'
@@ -31,7 +30,7 @@
     path = pretty;
   }
 
-  // --- Шаг C: 404.html + известный путь -> грузим файл ---
+  // C: 404.html + известный путь -> грузим файл
   var is404 = document.documentElement.getAttribute('data-404') === 'true';
   if (is404 && ROUTES[path]) {
     fetch(ROUTES[path])
@@ -48,7 +47,7 @@
     return;
   }
 
-  // --- Шаг D: 404 и пути нет — заглушка ---
+  // D: 404 и пути нет — заглушка
   if (is404 && !ROUTES[path]) {
     document.body.innerHTML =
       '<h1>404</h1><p>Страница не найдена. <a href="/">На главную</a></p>';

@@ -350,3 +350,20 @@ body {
   box-sizing: border-box;
   color: #000000;
 }
+
+.s-btn {
+  display: inline-block;
+  background-color: #ff5722;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.s-btn:hover {
+  background-color: #e64a19;
+}

@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+
+.site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('./banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.banner-content h2 {
+  font-size: 38px;
+  /* Немного увеличили для солидности */
+  font-weight: 900;
+  /* Сделали заголовок очень жирным */
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  /* Все буквы заглавными */
+}
+
+.banner-content p {
+  font-size: 18px;
+  /* Сделали IP сервера более читаемым */
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  /* Легкая плашка под IP, чтобы читался на любом фоне */
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.info-btn {
+  display: inline-block;
+  background-color: #ff5722;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.info-btn:hover {
+  background-color: #e64a19;
+}
+
+.rules-btn {
+  display: inline-block;
+  background-color: #1c19e6;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.rules-btn:hover {
+  background-color: #0300ba;
+}
+
+.info_site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('./site_banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.r_site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('./r_banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.rules-rules {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-position: center;
+  color: #000000;
+}
+
+.ban-text {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 20px
+}
+
+.d_site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('./d_banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.home-btn {
+  display: inline-block;
+  background-color: #00ff1e;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.home-btn:hover {
+  background-color: #00e91b;
+}
+
+.d-btn {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.d-btn:hover {
+  background-color: #bd0000;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f6f9;
+  /* Светлый фон, чтобы карточки выделялись */
+}
+
+.store-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.store-item {
+  background: #fff;
+  border-radius: 20px;
+  /* Более круглые углы */
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  /* Мягкая тень */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  /* Чтобы картинка не вылезала за края */
+}
+
+/* Эффект при наведении на карточку */
+.store-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.store-item img {
+  width: 100%;
+  height: 150px;
+  /* Фиксированная высота, чтобы сетка не прыгала */
+  object-fit: contain;
+  /* Картинка не искажается */
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Картинка увеличивается при наведении на карточку */
+.store-item:hover img {
+  transform: scale(1.08);
+}
+
+.store-item h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: #1e1e2f;
+  text-transform: uppercase;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 20px 0;
+}
+
+.new-price {
+  font-weight: 900;
+  font-size: 22px;
+  color: #333;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.discount {
+  background: #ff3b30;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+.buy-btn {
+  background: #f39c12;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  /* Кнопка всегда внизу */
+  transition: background 0.3s, transform 0.2s;
+  text-transform: uppercase;
+}
+
+.buy-btn:hover {
+  background: #e67e22;
+  transform: translateY(-2px);
+  /* Кнопка немного подпрыгивает при наведении */
+}
+
+.hit-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #27ae60;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+  z-index: 2;
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 600px) {
+  .store-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .store-item {
+    padding: 15px;
+  }
+
+  .store-item h3 {
+    font-size: 16px;
+  }
+
+  .new-price {
+    font-size: 18px;
+  }
+}

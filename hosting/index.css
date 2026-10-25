@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+
+.h_site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('h_banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.server-btn {
+  display: inline-block;
+  background-color: #1c19e6;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.server-btn:hover {
+  background-color: #0300ba;
+}
+
+.start-btn {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  background-color: #fb01ff;
+  color: #fbfbfb;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.2s;
+  background-position: center;
+  /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+.start-btn:hover {
+  background-color: #e100e5;
+}
+
+.body {
+  max-width: 1000px;
+  margin: 0 auto;
+}

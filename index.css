@@ -353,7 +353,7 @@ body {
 
 .s-btn {
   display: inline-block;
-  background-color: #ff5722;
+  background-color: #0000FF;
   color: #fbfbfb;
   padding: 12px 24px;
   text-decoration: none;
@@ -365,5 +365,5 @@ body {
 
 /* Эффект при наведении на кнопку */
 .s-btn:hover {
-  background-color: #e64a19;
+  background-color: #32CD32;
 }

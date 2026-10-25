@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaMC - Статус сервера</title>
+  
+  <link rel="icon" href="./server.png">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Баннер (только кнопка Домой) -->
+  <div class="info_site-banner">
+    <div class="banner-content">
+      <h2>Сервер открыт!</h2>
+      <p>IP: play.novamc.ru</p>
+      <a href="./index.html" class="home-btn">Домой</a>
+    </div>
+  </div>
+
+  <!-- Карточка статуса -->
+  <div class="status-wrapper">
+    <div class="status-card">
+
+      <div class="status-head">
+        <img class="status-icon" id="icon" alt=""
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+        <div class="status-head-text">
+          <h2>NOVAMC</h2>
+          <div class="status-ip">play.novamc.ru</div>
+        </div>
+      </div>
+
+      <div class="status-err" id="errBox"></div>
+
+      <div class="status-row">
+        <div class="status-dot loading" id="dot"></div>
+        <div class="status-text" id="status">Проверка...</div>
+      </div>
+
+      <div class="status-online-block">
+        <div>
+          <div class="status-online-label">Онлайн</div>
+          <div class="status-online-value" id="onlineValue"><span class="max">—</span></div>
+        </div>
+        <div class="status-online-icon">🎮</div>
+      </div>
+
+      <div class="status-motd" id="motd"></div>
+
+    </div>
+  </div>
+
+  <script>
+    const SERVER   = 'play.novamc.ru';
+    const dot      = document.getElementById('dot');
+    const status   = document.getElementById('status');
+    const onlineEl = document.getElementById('onlineValue');
+    const motdEl   = document.getElementById('motd');
+    const iconEl   = document.getElementById('icon');
+    const errBox   = document.getElementById('errBox');
+
+    async function fetchJSON(url, timeoutMs = 4000) {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          cache: 'no-store',
+          signal: controller.signal,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } finally {
+        clearTimeout(t);
+      }
+    }
+
+    async function queryServer() {
+      try {
+        const d = await fetchJSON(`https://api.mcstatus.io/v2/status/java/${SERVER}`);
+        if (d && typeof d.online === 'boolean') {
+          return {
+            online: d.online,
+            onlinePlayers: d.players?.online ?? 0,
+            maxPlayers:    d.players?.max ?? 0,
+            motd: d.motd?.clean || '',
+            icon: d.icon || null
+          };
+        }
+      } catch (e) { console.warn('[mcstatus.io]', e.message); }
+
+      try {
+        const d = await fetchJSON(`https://api.mcsrvstat.us/3/${SERVER}`);
+        if (d) {
+          return {
+            online: !!d.online,
+            onlinePlayers: d.players?.online ?? 0,
+            maxPlayers:    d.players?.max ?? 0,
+            motd: (d.motd?.clean || []).join('\n'),
+            icon: d.icon || null
+          };
+        }
+      } catch (e) { console.warn('[mcsrvstat.us]', e.message); }
+
+      throw new Error('Все API недоступны');
+    }
+
+    async function loadStatus() {
+      errBox.classList.remove('show');
+      errBox.textContent = '';
+      dot.classList.remove('offline');
+      dot.classList.add('loading');
+      status.textContent = 'Проверка...';
+      onlineEl.innerHTML = '<span class="max">—</span>';
+      motdEl.textContent = '';
+
+      try {
+        const data = await queryServer();
+        dot.classList.remove('loading');
+
+        if (data.online) {
+          dot.classList.remove('offline');
+          status.textContent = 'Сервер онлайн';
+          onlineEl.innerHTML = `${data.onlinePlayers} <span class="max">/ ${data.maxPlayers}</span>`;
+          motdEl.textContent = data.motd || '';
+          if (data.icon) {
+            iconEl.src = data.icon.startsWith('data:') ? data.icon : 'data:image/png;base64,' + data.icon;
+          }
+        } else {
+          dot.classList.add('offline');
+          status.textContent = 'Сервер офлайн';
+          onlineEl.innerHTML = '<span class="max">0 / 0</span>';
+          motdEl.textContent = '';
+        }
+      } catch (e) {
+        console.error(e);
+        dot.classList.remove('loading');
+        dot.classList.add('offline');
+        status.textContent = 'Не удалось получить данные';
+        onlineEl.innerHTML = '<span class="max">—</span>';
+        motdEl.textContent = '';
+        errBox.textContent = 'Не удалось получить статус play.novamc.ru. Возможно, сервер временно не отвечает.';
+        errBox.classList.add('show');
+      }
+    }
+
+    loadStatus();
+    setInterval(loadStatus, 5000);
+  </script>
+
+</body>
+  </html>

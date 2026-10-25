@@ -333,3 +333,20 @@ body {
     font-size: 18px;
   }
 }
+.s_site-banner {
+  /* Применяем кастомный шрифт ко всему баннеру */
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 20px auto;
+  background-image: url('./banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000000;
+}
